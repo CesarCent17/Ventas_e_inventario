@@ -1,0 +1,3 @@
+003;Coca Cola;3 litros;2.0;4;
+004;Coca Cola;1 litro;1.0;12;
+006;Inca Kola;1 litro;1.0;9;
