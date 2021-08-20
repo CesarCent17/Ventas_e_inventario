@@ -165,12 +165,8 @@ class Core:
         print("Nota: se aplicara un descuento del 15% por la compra de 10 productos que contengan el mismo codigo\n")
         print("\t\t Ventas al por mayor y menor")
 
-        #ELEGIR CANTIDAD DE ITEMS
         cantidad_items_eleccion = self.objEntrada.numero_Int("Cantidad de items: ")
 
-        #COMPROBACION DE CANTIDAD ELEGIDA DE ITEMS
-
-        #CANTIDAD ERRONEA -  REGRESA AL MENU
         if cantidad_items_eleccion > len(self.listaproductos) or cantidad_items_eleccion <= 0:
             print("La cantidad de items elegida esta fuera de rango")
             self.menuVenta()
@@ -203,7 +199,6 @@ class Core:
                 print("Error, el codigo ingresado no coincide con los registros")
                 break
 
-            #BUG
             elif obj != None:
                 if obj.cantidad > 0:
                     cantidad_comprar = self.objComprobar.check_Cantidad(i, obj)
@@ -238,10 +233,8 @@ class Core:
         self.listaclientes = self.objArc.getDatos_Cliente("Clientes.txt")
         obj = Cliente(nombre, apellido, cedula, telefono)
 
-        # Lo agrego a la lista de clientes
         self.listaclientes.append(obj)
 
-        #Lo agrego al archivo
         msg = obj.nombre+";"+obj.apellido+";"+obj.cedula+";"+obj.telefono+";\n"
         self.objArc.create_file("Clientes.txt", msg, "a")
         print("Cliente registrado exitosamente!\n")
@@ -254,10 +247,7 @@ class Core:
         self.listaclientes = self.objArc.getDatos_Cliente("Clientes.txt")
         obj = Cliente(nombre, apellido, cedula, telefono)
 
-        # Lo agrego a la lista de clientes
         self.listaclientes.append(obj)
-
-        # Lo agrego al archivo
         msg = obj.nombre + ";" + obj.apellido + ";" + obj.cedula + ";" + obj.telefono + ";\n"
         self.objArc.create_file("Clientes.txt", msg, "a")
         print("Cliente registrado exitosamente!\n")
@@ -273,6 +263,7 @@ class Core:
         self.listafacturas.append(obj)
         msg = obj.cliente + ";" + obj.cedula + ";" + obj.telefono + ";\n"
         self.objArc.create_file("Facturas.txt", msg, "a")
+
         #PRESENTACION DE FACTURA
         print("########## FACTURA ##########")
         print(f"Cliente: {cliente}\n"
@@ -320,7 +311,6 @@ class Core:
         for i in range(len(listadeitems)):
             if cantidad_comprar[i] >= 10:
                 descuento15 = (listadeitems[i].precio_unitario * cantidad_comprar[i]) * 0.15
-                #valortotal_itemdesc = (listadeitems[i].precio_unitario * cantidad_comprar[i]) - descuento15
                 lista_descuento_total.append(descuento15)
 
         for i in range(len(listadeitems)):
