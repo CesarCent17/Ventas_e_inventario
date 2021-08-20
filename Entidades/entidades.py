@@ -28,20 +28,6 @@ class Producto:
         return datos
 
 
-class Cliente:
-    def __init__(self, nombre, apellido, cedula, telefono):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.cedula = cedula
-        self.telefono = telefono
-
-    def getDatos(self):
-        datos = f"Cliente: {self.nombre} {self.apellido}\n" \
-                f"Cedula: {self.cedula}\n" \
-                f"Telefono: {self.telefono}\n"
-        return datos
-
-
 class Factura:
     def __init__(self, cliente, cedula, telefono):
         self.cliente = cliente
